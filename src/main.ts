@@ -4,6 +4,7 @@ import {ModCallback, PlayerType, TrinketType} from "isaac-typescript-definitions
 const MOD_NAME = "Blue Baby Petrified Poop Start";
 
 main();
+
 function main() {
 	const mod = RegisterMod(MOD_NAME, 1);
 
