@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <name>Blue Baby Petrified Poop Start</name>
-  <directory>Blue Baby Petrified Poop Start</directory>
+  <name>??? Starts with Petrified Poop</name>
+  <directory>blue_baby_petrified_poop_start</directory>
+  <id>2662126859</id>
   <description>Blue Baby Petrified Poop Start gives blue baby the petrified poop to start</description>
-  <version>1.0</version>
+  <version>1.1</version>
   <visibility/>
 </metadata>
