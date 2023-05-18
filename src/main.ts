@@ -1,20 +1,19 @@
-import { getPlayersOfType } from "isaacscript-common";
+import {getPlayersOfType} from "isaacscript-common";
+import {ModCallback, PlayerType, TrinketType} from "isaac-typescript-definitions";
 
-export function main(): void {
-  // Instantiate a new mod object, which grants the ability to add callback functions that
-  // correspond to in-game events
-  const mod = RegisterMod("Blue Baby Petrified Poop", 1);
+const MOD_NAME = "Blue Baby Petrified Poop Start";
 
-  // Set a callback function that corresponds to when a new run is started
-  mod.AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, postRunBegin);
+main();
+function main() {
+	const mod = RegisterMod(MOD_NAME, 1);
 
-  // Print an initialization message to the "log.txt" file
-  Isaac.DebugString("BlueBabyPetrifiedStart initialized.");
-}
+	mod.AddCallback(ModCallback.POST_PLAYER_INIT, () => {
+		for (const player of getPlayersOfType(PlayerType.BLUE_BABY)) {
+			player.AddTrinket(TrinketType.PETRIFIED_POOP);
+			Game().GetItemPool().RemoveTrinket(TrinketType.PETRIFIED_POOP);
+		}
+	});
 
-function postRunBegin() {
-  for (const player of getPlayersOfType(PlayerType.PLAYER_BLUEBABY)) {
-    player.AddTrinket(TrinketType.TRINKET_PETRIFIED_POOP);
-    Game().GetItemPool().RemoveTrinket(TrinketType.TRINKET_PETRIFIED_POOP);
-  }
+	// Print an initialization message to the "log.txt" file
+	Isaac.DebugString("BlueBabyPetrifiedStart initialized.");
 }
